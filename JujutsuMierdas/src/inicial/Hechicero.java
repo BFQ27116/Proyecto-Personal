@@ -1,5 +1,7 @@
 package inicial;
 
+import java.util.Scanner;
+
 public class Hechicero {
 
 	private Tecnica CT;
@@ -16,11 +18,6 @@ public class Hechicero {
 		this.talent = talentValue;
 	}
 
-	public void jugar() {
-		// TODO Auto-generated method stub
-		
-	}
-	
 	public Tecnica getCT() {
 		return CT;
 	}

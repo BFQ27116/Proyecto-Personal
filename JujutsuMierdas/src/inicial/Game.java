@@ -10,6 +10,8 @@ public class Game {
 	private int talentValue;
 	private int grade;
 	
+	Hechicero player = null;
+	
 	public void pruebaHechiceria() {
 		Random r = new Random();
 		String test = "";
@@ -48,7 +50,24 @@ public class Game {
 			throw new IllegalArgumentException("Unexpected value: " + grade);
 		}
 		
-		new Hechicero(ct,CE,talentValue).jugar();
+		this.player = new Hechicero(ct,CE,talentValue);
+		
+		elegirModo();
+	}
+
+	private void elegirModo() {
+		System.out.println("Elige un modo de juego");
+		System.out.println("1: MODO DUNGEON\n2: JUEGOS DEL SACRIFICIO (PvP)");
+		int eleccion = new Scanner(System.in).nextInt();
+		
+		if(eleccion  == 1) {
+			new ModoHistoria(player).start();
+		}else if(eleccion == 2) {
+			new ArenaPVP(player).start();
+		}else {
+			elegirModo();
+		}
+		
 	}
 
 	public String rangoHechicero(int l) {
